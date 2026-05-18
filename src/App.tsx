@@ -60,6 +60,7 @@ export const App: React.FC = () => {
         setTodos(todosFromServer);
         setIsLoading(false);
       })
+      .catch(error => alert(error))
       .finally(() => {
         setIsLoading(false);
       });

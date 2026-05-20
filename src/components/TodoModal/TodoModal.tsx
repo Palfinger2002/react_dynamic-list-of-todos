@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Loader } from '../Loader';
 import { User } from '../../types/User';
 import { Todo } from '../../types/Todo';
-import { getUser } from '../../api';
+import { getUserById } from '../../services/todo';
 
 type TodoModalProps = {
   todo: Todo;
@@ -15,7 +15,7 @@ export const TodoModal: React.FC<TodoModalProps> = ({ todo, onClose }) => {
 
   useEffect(() => {
     setLoading(true);
-    getUser(todo.userId)
+    getUserById(todo.userId)
       .then(userFromServer => {
         setUser(userFromServer);
       })
